@@ -26,7 +26,17 @@
  */
 
 class Welcome extends CI_Controller {
-
+	
+	
+	
+	function __construct()
+	{
+		parent::__construct();
+		
+		$this->load->spark('gravatar_helper/1.2.0');
+		
+		$this->load->spark('oauth2/0.1.1');
+	}
 	/**
 	 * Index Page for this controller.
 	 *
@@ -42,9 +52,12 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		echo '<img src="' . Gravatar_helper::from_email('robertuj@gmail.com') . '" />';
+		
+		
 	}
 }
 
